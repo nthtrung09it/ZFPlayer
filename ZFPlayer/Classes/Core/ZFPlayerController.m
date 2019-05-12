@@ -388,7 +388,7 @@
         [self.orientationObserver exitFullScreenWithAnimated:NO];
     }
     [self.currentPlayerManager stop];
-    [self.currentPlayerManager.view removeFromSuperview];
+    // [self.currentPlayerManager.view removeFromSuperview];
     if (self.scrollView) {
         self.scrollView.zf_stopPlay = YES;
     }
