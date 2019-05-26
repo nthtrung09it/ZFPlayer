@@ -383,10 +383,18 @@
 
 - (void)stop {
     [self.notification removeNotification];
-    [self.orientationObserver removeDeviceOrientationObserver];
-    if (self.isFullScreen && self.exitFullScreenWhenStop) {
+
+    //[self.orientationObserver removeDeviceOrientationObserver];
+    //if (self.isFullScreen && self.exitFullScreenWhenStop) {
+    //    [self.orientationObserver exitFullScreenWithAnimated:NO];
+    //}
+
+    /// Don't call 'exiFullScreen' when player's stopped.
+     [self.orientationObserver removeDeviceOrientationObserver];
+     if (self.isFullScreen) {
         [self.orientationObserver exitFullScreenWithAnimated:NO];
-    }
+     }
+
     [self.currentPlayerManager stop];
     // [self.currentPlayerManager.view removeFromSuperview];
     if (self.scrollView) {
